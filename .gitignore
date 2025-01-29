@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.env
+.venv
+venv/
+
+# Excel
+~$*.xlsx
+*.xlsm
+*.xltx
+*.xltm
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
