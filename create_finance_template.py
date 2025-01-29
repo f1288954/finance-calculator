@@ -40,55 +40,59 @@ def create_finance_template():
          ["現值 Present Value (PV)", "利率 Interest Rate (r)", "期數 Number of Periods (n)"], 
          "=FV(C7,C8,0,-C6,0)"),
         
+        ("期初存入多期現金流未來值 Future Value (Beginning of Period)", 
+         ["每期存入金額 Payment per Period", "利率 Interest Rate (r)", "期數 Number of Periods (n)"], 
+         "=C10*(1+C11)^C12 + C10*(1+C11)^(C12-1) + C10*(1+C11)^(C12-2)"),
+        
         ("普通年金現值 Present Value of Ordinary Annuity", 
          ["每期金額 Payment (PMT)", "利率 Interest Rate (r)", "期數 Number of Periods (n)"], 
-         "=PV(C11,C12,-C10,0,0)"),
+         "=PV(C15,C16,-C14,0,0)"),
         
         ("普通年金終值 Future Value of Ordinary Annuity", 
          ["每期金額 Payment (PMT)", "利率 Interest Rate (r)", "期數 Number of Periods (n)"], 
-         "=FV(C15,C16,-C14,0,0)"),
+         "=FV(C19,C20,-C18,0,0)"),
         
         ("成長年金現值 Present Value of Growing Annuity", 
          ["首期金額 First Payment (C1)", "利率 Interest Rate (r)", "成長率 Growth Rate (g)", "期數 Number of Periods (n)"], 
-         "=C18/(C19-C20)*(1-POWER(1+C20,C21)/POWER(1+C19,C21))"),
+         "=C22/(C23-C24)*(1-POWER(1+C24,C25)/POWER(1+C23,C25))"),
         
         ("永續年金 Perpetuity", 
          ["每期金額 Payment (C)", "利率 Interest Rate (r)"], 
-         "=C23/C24"),
+         "=C27/C28"),
         
         ("成長型永續年金 Growing Perpetuity", 
          ["首期金額 First Payment (C1)", "利率 Interest Rate (r)", "成長率 Growth Rate (g)"], 
-         "=C26/(C27-C28)"),
+         "=C30/(C31-C32)"),
         
         ("淨現值計算 Net Present Value (NPV)", 
          ["利率 Interest Rate (r)", "期初投資 Initial Investment (CF0)", 
           "現金流1 Cash Flow 1", "現金流2 Cash Flow 2", "現金流3 Cash Flow 3", 
           "現金流4 Cash Flow 4", "現金流5 Cash Flow 5"], 
-         "=NPV(C30,C32:C36)+C31"),
+         "=NPV(C34,C36:C40)+C35"),
         
         ("內部報酬率 Internal Rate of Return (IRR)", 
          ["期初投資 Initial Investment (CF0)", 
           "現金流1 Cash Flow 1", "現金流2 Cash Flow 2", "現金流3 Cash Flow 3", 
           "現金流4 Cash Flow 4", "現金流5 Cash Flow 5"], 
-         "=IRR(C38:C43)"),
+         "=IRR(C42:C47)"),
         
         ("股利折現模型 Dividend Discount Model (DDM)", 
          ["明年股利 Next Year Dividend (D1)", "必要報酬率 Required Return (r)", "成長率 Growth Rate (g)"], 
-         "=C45/(C46-C47)"),
+         "=C49/(C50-C51)"),
         
         ("本益比 Price-Earnings Ratio (P/E)", 
          ["保留盈餘率 Retention Ratio (b)", "必要報酬率 Required Return (r)", "成長率 Growth Rate (g)"], 
-         "=(1-C49)/(C50-C51)"),
+         "=(1-C53)/(C54-C55)"),
         
         ("債券價格 Bond Price", 
          ["票面利率 Coupon Rate (C)", "市場利率 Market Rate (r)", 
           "期數 Number of Periods (n)", "面額 Face Value (F)"], 
-         "=PV(C54,C55,-C53*C56,C56,0)"),
+         "=PV(C58,C59,-C57*C60,C60,0)"),
         
         ("債券殖利率 Yield to Maturity (YTM)", 
          ["市價 Market Price (P)", "票面利率 Coupon Rate (C)", 
           "期數 Number of Periods (n)", "面額 Face Value (F)"], 
-         "=RATE(C59,C58*C60,-C57,C60)")
+         "=RATE(C63,C62*C64,-C61,C64)")
     ]
     
     current_row = 2
